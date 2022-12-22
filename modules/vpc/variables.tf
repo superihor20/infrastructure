@@ -3,3 +3,9 @@ variable "vpc_cidr_block" {
   type        = string
   default     = "10.0.0.0/16"
 }
+
+variable "vpc_enable_dns_hostnames" {
+  description = "A boolean flag to enable/disable DNS hostnames in the VPC"
+  type        = bool
+  default     = true
+}
