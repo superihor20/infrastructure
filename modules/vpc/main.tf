@@ -1,8 +1,8 @@
-resource "aws_vpc" "main" {
-  cidr_block           = var.vpc_cidr_block
-  enable_dns_hostnames = var.vpc_enable_dns_hostnames
+resource "aws_vpc" "vpc" {
+  cidr_block           = var.cidr_block
+  enable_dns_hostnames = var.enable_dns_hostnames
 
   tags = {
-    Name = "main-vpc-resource"
+    Name = "vpc-resource"
   }
 }

@@ -4,11 +4,21 @@ provider "aws" {
   default_tags {
     tags = {
       Owner   = "Ihor Naidonov"
-      Project = "NaidonovProduction"
+      Project = "Naidonov Production"
     }
   }
 }
 
-module "aws_vpc" {
+module "vpc" {
   source = "./modules/vpc"
+}
+
+module "internet_gateway" {
+  source = "./modules/internet-gateway"
+
+  vpc_id = module.vpc.id
+
+  depends_on = [
+    module.vpc
+  ]
 }
