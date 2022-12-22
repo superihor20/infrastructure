@@ -22,3 +22,13 @@ module "internet_gateway" {
     module.vpc
   ]
 }
+
+module "subnet" {
+  source = "./modules/subnet"
+
+  vpc_id = module.vpc.id
+
+  depends_on = [
+    module.vpc
+  ]
+}
