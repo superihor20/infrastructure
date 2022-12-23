@@ -51,6 +51,7 @@ module "route_table" {
   depends_on = [
     module.vpc,
     module.internet_gateway,
-    module.global_variables
+    module.global_variables,
+    module.subnet
   ]
 }
