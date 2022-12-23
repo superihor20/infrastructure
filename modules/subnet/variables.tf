@@ -1,10 +1,6 @@
 variable "subnet_amount" {
   description = "Number of subnets"
   type        = map(number)
-  default = {
-    public  = 1,
-    private = 2
-  }
 }
 
 variable "vpc_id" {
