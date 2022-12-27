@@ -4,7 +4,7 @@ resource "aws_security_group" "web_sg" {
   vpc_id      = var.vpc_id
 
   dynamic "ingress" {
-    for_each = local.ingress
+    for_each = local.ingress_web
 
     content {
       description = ingress.value.description
@@ -16,7 +16,7 @@ resource "aws_security_group" "web_sg" {
   }
 
   dynamic "egress" {
-    for_each = local.egress
+    for_each = local.egress_web
 
     content {
       description = egress.value.description
@@ -31,3 +31,4 @@ resource "aws_security_group" "web_sg" {
     Name = "web_sg"
   }
 }
+
