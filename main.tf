@@ -55,3 +55,15 @@ module "route_table" {
     module.subnet
   ]
 }
+
+module "security_group" {
+  source = "./modules/security-group"
+
+  vpc_id = module.vpc.id
+  my_ip  = var.my_ip
+
+  depends_on = [
+    module.vpc,
+    var.my_ip
+  ]
+}
