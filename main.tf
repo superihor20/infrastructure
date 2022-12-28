@@ -67,3 +67,15 @@ module "security_group" {
     var.my_ip
   ]
 }
+
+module "db_instance" {
+  source = "./modules/database"
+
+  db_subnet_group_id    = module.subnet.db_subnet_group_id
+  db_security_group_ids = module.security_group.db_security_group_ids
+
+  depends_on = [
+    module.subnet,
+    module.security_group
+  ]
+}
