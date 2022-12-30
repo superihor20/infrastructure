@@ -79,3 +79,7 @@ module "db_instance" {
     module.security_group
   ]
 }
+
+module "key_pairs_ec2" {
+  source = "./modules/key-pair"
+}
