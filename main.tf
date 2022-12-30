@@ -83,3 +83,17 @@ module "db_instance" {
 module "key_pairs_ec2" {
   source = "./modules/key-pair"
 }
+
+module "instances" {
+  source = "./modules/instance"
+
+  public_subnets         = module.subnet.public_subnet_ids
+  key_name               = module.key_pairs_ec2.key_name
+  web_security_group_ids = module.security_group.web_security_group_ids
+
+  depends_on = [
+    module.subnet,
+    module.key_pairs_ec2,
+    module.security_group
+  ]
+}

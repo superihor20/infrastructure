@@ -1,5 +1,5 @@
-variable "file_keys_names" {
-  description = "Public ssh keys for EC2"
-  type        = list(string)
-  default     = ["naidonov"]
+variable "file_name" {
+  description = "Name of Public ssh key file"
+  type        = string
+  default     = "naidonov"
 }
