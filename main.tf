@@ -97,3 +97,14 @@ module "instances" {
     module.security_group
   ]
 }
+
+module "eip" {
+  source = "./modules/elastic-ip"
+
+  instance_ids  = module.instances.instance_ids
+  web_instances = module.instances.web_instances
+
+  depends_on = [
+    module.instances
+  ]
+}
